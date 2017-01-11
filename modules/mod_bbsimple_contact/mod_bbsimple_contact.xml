@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1.0" client="site" type="module" method="upgrade">
+    <name>BB Simple Contact</name>
+    <author>Boris Beplate</author>
+    <creationDate>12.11.2016</creationDate>
+    <copyright>Copyright (C) 2016 Boris Beplate. All rights reserved.</copyright>
+    <license>GNU General Public License</license>
+    <authorEmail>boris@beplate.de</authorEmail>
+    <authorUrl>http://www.beplate.de/</authorUrl>
+<version>1.0.2</version>
+    <description>Based on Rapid Contact by Christopher Mavros</description>
+    <files>
+	    <filename >mod_bbsimple_contact.xml</filename>
+        <filename module="mod_bbsimple_contact">mod_bbsimple_contact.php</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+    </files>
+    <languages>
+		<language tag="en-GB">en-GB.mod_bbsimple_contact.ini</language>
+		<language tag="en-GB">en-GB.mod_bbsimple_contact.sys.ini</language>
+	</languages>
+	<updateservers>
+		<server type="extension" name="BB Simple Contact" priority="1">http://www.beplate.de/software/joomla/bbsimplecontact/bbsimplecontact_update.xml	
+		</server>
+	</updateservers>
+    <config>
+	    <fields name="params">
+		    <fieldset name="basic">
+				<field 
+					name="spacert1" 
+					type="spacer" 
+					class="text" 
+					label="&lt;strong&gt;Email Parameters&lt;/strong&gt;"
+				/> 
+				<field 
+					name="email_recipient"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_RECIPIENT_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_RECIPIENT_LABEL"        
+			        description="MOD_BBSIMPLE_CONTACT_RECIPIENT_DESC" 
+			    />         
+				<field 
+					name="from_name"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_FROMNAME_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_FROMNAME_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_FROMNAME_DESC" 
+			    />
+			    <field 
+			    	name="from_email"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_FROMMAIL_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_FROMMAIL_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_FROMMAIL_DESC" 
+			    />          
+			</fieldset>
+     
+    		<fieldset name="texts" label="MOD_BBSIMPLE_CONTACT_TEXTS_LABEL">
+				<field 
+					name="email_label"
+			        type="text"
+			        default="email@site.com"
+			        label="MOD_BBSIMPLE_CONTACT_FROMEMAIL_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_FROMEMAIL_DESC" />        
+				<field 
+					name="subject_label"
+			        type="text"
+			        default="Subject"
+			        label="MOD_BBSIMPLE_CONTACT_SUBJETLABEL_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_SUBJECTLABEL_DESC" />
+			    <field 
+			    	name="message_label"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_MESSAGELABEL_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_MESSAGELABEL_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_MESSAGELABEL_DESC" />  
+			    <field 
+			    	name="button_text"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_BUTTONTEXT_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_BUTTONTEXT_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_BUTTONTEXT_DESC" /> 
+			    <field 
+			    	name="page_text"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_PAGETEXT_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_PAGETEXT_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_PAGETEXT_DESC" /> 
+			    <field 
+			    	name="error_text"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_ERRORTEXT_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_ERRORTEXT_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_ERRORTEXT_DESC" />           
+			    <field 
+					name="no_email"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_NOEMAIL_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_NOEMAIL_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_NOEMAIL_DESC" />
+			    <field 
+			    	name="invalid_email"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_INVALIDEMAIL_DESC"
+			        label="MOD_BBSIMPLE_CONTACT_INVALIDEMAIL_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_INVALIDEMAIL_DESC" />
+			    <field 
+			    	name="wrong_antispam"
+			        type="text"
+			        default="MOD_BBSIMPLE_CONTACT_WRONGANTISPAM_DEFAULT"
+			        label="MOD_BBSIMPLE_CONTACT_WRONGANTISPAM_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_WRONGANTISPAM_DESC"/>
+			    <field 
+			    	name="pre_text"
+			        type="text" filter="raw"
+			        default=""
+			        label="MOD_BBSIMPLE_CONTACT_PRETEXT_LABEL"
+			        description="MOD_BBSIMPLE_CONTACT_PRETEXT_DESC" />        
+			</fieldset>
+  
+			<fieldset name="size_color" label="MOD_BBSIMPLE_CONTACT_SIZECOLOR_LABEL">
+				<field 
+					name="thank_text_color"
+			        type="text"
+			        default="#000000"
+			        label="Text Color"
+			        description="The color of the Thank you text." />  
+				<field 
+					name="error_text_color"
+			        type="text"
+			        default="#FF0000"
+			        label="Error Text Color"
+			        description="The color of the Error text." />          
+				<field 
+					name="email_width"
+			        type="text" filter="raw"
+			        default="10"
+			        label="Email Width"
+			        description="Width in letters of the email input" />         
+				<field 
+					name="subject_width"
+			        type="text" filter="raw"
+			        default="10"
+			        label="Subject Width"
+			        description="Width in letters of the subject input" />
+				<field 
+					name="message_width"
+			        type="text" default="7"
+			        label="Message Width"
+			        description="Width in columns of the message textarea" />   
+				<field 
+					name="label_pos"
+			        type="radio" default="2"
+			        label="Label Position" class="btn-group"
+			        description="The position of the labels">
+			          <option value="1">Top</option>
+			          <option value="2">As Placeholders</option>
+			    </field>
+			    <field 
+			    	name="addcss"
+			        type="text" default=""
+			        label="Custom CSS"
+			        description="Custom CSS for the form." />
+  			</fieldset>
+  
+  			<fieldset name="customfields" label="Custom Fields">
+  				<field 
+  					name="rpxadd" 
+  					type="spacer" 
+  					class="text" 
+  					label="&lt;h2&gt;Extend your form capabilities&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;http://mavrosxristoforos.com/images/rpx_ad.png&quot; alt=&quot;Rapid Contact Ex&quot; align=&quot;right&quot;/&gt;Rapid Contact Ex is a fully customizable Contact Form generator which allows you to create any form you may require, from very simple contact forms, to complex business contact forms with multiple email recipients, or even file-upload forms, without writing one line of code.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Unlimited Fields&lt;/li&gt;&lt;li&gt;Multiple Email Recipients&lt;/li&gt;&lt;li&gt;Multiple Forms per Site&lt;/li&gt;&lt;li&gt;Back-end Field Manager&lt;/li&gt;&lt;li&gt;Various Field types: (Text, Textarea, Email, Telephone, Postal Code, File Upload, DropDowns, Checkboxes, Hidden, Email Groups)&lt;/li&gt;&lt;li&gt;Custom HTML or text between fields to customize your form, completely!&lt;/li&gt;&lt;li&gt;Unlimited Websites License&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Above all that, Rapid Contact Ex is &lt;strong&gt;one of the cheapest (if not the cheapest) professional contact form generator&lt;/strong&gt;, while it includes all the fancy features you want to create a contact form for your site. With a 30-day money-back guarantee, why not choose it to create your forms?&lt;/p&gt;&lt;br/&gt;&lt;a href=&quot;http://mavrosxristoforos.com/joomla-extensions/commercial/rapid-contact-ex&quot; target=&quot;_blank&quot;&gt;Learn more!&lt;/a&gt;"/>
+  			</fieldset>
+  
+  			<fieldset name="antispam" label="Anti-Spam Options">   
+	 			<field 
+		 			name="enable_anti_spam"
+			 		type="radio" 
+					default="1"
+					label="Anti-spam"
+					class="btn-group"
+					description="Enable this to use the anti-spam question for anti-spam control">
+					<option value="0">No</option>
+					<option value="1">Anti-Spam Question</option>
+					<option value="2">Captcha Plugin</option>
+				</field>          
+				<field 
+					name="anti_spam_q"
+	               type="text"
+	               default="How many eyes has a typical person?"
+	               label="Anti-Spam Question"
+	               description="A small text question, preventing you from every automated spam" />
+				<field 
+					name="anti_spam_a"
+	               type="text"
+	               default="2"
+	               label="Anti-Spam Answer"
+	               description="The correct answer to the anti-spam question" />    
+				<field 
+					name="anti_spam_position"
+			        type="radio"
+			        default="1" class="btn-group"
+			        label="Anti-Spam Position"
+			        description="The anti-spam position, relative to the Rapid Contact form.">
+					<option value="0">Before</option>
+					<option value="1">After</option>        
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+		        <field 
+			        name="moduleclass_sfx"
+			        type="text"
+			        default=""
+			        label="Module Class Suffix"
+			        description="If you want to apply a custom style, change this class suffix." />
+		        <field 
+			        name="fixed_url"
+			        type="radio"
+			        default="0" 
+				    class="btn-group btn-group-yesno"
+			        label="Fixed URL"
+			        description="A simple solution to people that want to use Rapid Contact in an exact page. Change this to Yes and write the URL of Rapid Contact in the Fixed URL Address parameter">
+		            <option value="0">JNO</option>
+		            <option value="1">JYES</option>        
+		        </field>        
+		        <field 
+		        	name="fixed_url_address"
+			        type="text"
+			        default=""
+			        label="Fixed URL Address"
+			        description="If fixed url is true, this address is used for Rapid Contact to post itself."/> 
+				<field 
+					name="cache" 
+					type="list"
+			        default="1" label="Caching"
+					description="Select whether to cache the content of this module">
+				    <option value="1">Use global</option>
+				    <option value="0">No caching</option>
+				</field>
+				<field 
+					name="cache_time" 
+					type="text"
+					default="900" 
+					label="Cache Time"
+					description="The time before the module is recached" />
+		    </fieldset>
+		</fields>
+	</config>     
+</extension>
